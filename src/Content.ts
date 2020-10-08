@@ -1,6 +1,6 @@
 ﻿import fs from "fs";
 import http from "http";
-import url from "url";
+import Megoldás from "./Megoldás";
 
 export default class Content {
     public content(req: http.IncomingMessage, res: http.ServerResponse): void {
@@ -22,8 +22,14 @@ export default class Content {
         res.write("<body><form><pre class='m-3'>");
 
         // Kezd a kódolást innen -->
-        
-        
+        // 1. feladat: adatok beolvasása, tárolása
+        const megold: Megoldás = new Megoldás("utasadat.txt");
+
+        // 2. feladat:
+        res.write(`2. feladat\nA buszra ${megold.felszállókSzáma} utas akar felszállni.`);
+
+        // 3. feladat
+        res.write(`3. feladat\nA buszra ${megold.érvénytelenFelszállás} utas nem szállhatott fel.`);
 
         // <---- Fejezd be a kódolást
 
