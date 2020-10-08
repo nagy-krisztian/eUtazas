@@ -31,6 +31,9 @@ export default class Content {
         // 3. feladat
         res.write(`3. feladat\nA buszra ${megold.érvénytelenFelszállás} utas nem szállhatott fel.`);
 
+        // 4 .feladat
+        res.write(`4. feladat\nA legtöbb utas (${megold.maxKeresArray.maxFelszálló} fő) a ${megold.maxKeresArray.maxElsőMegálló} megállóban próbált felszállni.`);
+
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form>");

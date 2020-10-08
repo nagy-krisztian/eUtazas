@@ -7,6 +7,10 @@ export default abstract class Felszállás {
         return false;
     }
 
+    public get megállóSorszáma(): number {
+        return this._megállóSorszáma;
+    }
+
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
         this._megállóSorszáma = parseInt(m[0]);
