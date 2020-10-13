@@ -10,6 +10,14 @@ export default class FelSzállásBérlet extends Felszállás {
         return this._idő.valueOf() < érvényességLejár;
     }
 
+    public get kedvezményesUtazás(): boolean {
+        return this.érvényesFelszállás && ["TAB", "NYB"].includes(this._típus);
+    }
+
+    public get ingyenesUtazás(): boolean {
+        return this.érvényesFelszállás && ["NYP", "RVS", "GYK"].includes(this._típus);
+    }
+
     constructor(sor: string) {
         super(sor); // ősosztály konstruktorát hívja
         const m: string[] = sor.split(" ");
