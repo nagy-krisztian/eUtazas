@@ -29,6 +29,10 @@ export default abstract class Felszállás {
         return false;
     }
 
+    public get lejárHáromNap(): boolean {
+        return false;
+    }
+
     constructor(sor: string) {
         const m: string[] = sor.split(" ");
         this._megállóSorszáma = parseInt(m[0]);

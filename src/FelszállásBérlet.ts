@@ -1,4 +1,5 @@
 import Felszállás from "./Felszállás";
+import FelszállásJegy from "./FelSzállásJegy";
 
 export default class FelSzállásBérlet extends Felszállás {
     private _típus: string;
@@ -16,6 +17,10 @@ export default class FelSzállásBérlet extends Felszállás {
 
     public get ingyenesUtazás(): boolean {
         return this.érvényesFelszállás && ["NYP", "RVS", "GYK"].includes(this._típus);
+    }
+
+    public get lejárHáromNap(): boolean {
+        return this.érvényesFelszállás && FelszállásJegy.napokszáma(this._idő.getFullYear(), this._idő.getMonth() + 1, this._idő.getDay(), this._érvényes.getFullYear(), this._érvényes.getMonth() + 1, this._érvényes.getDay()) <= 3;
     }
 
     constructor(sor: string) {
