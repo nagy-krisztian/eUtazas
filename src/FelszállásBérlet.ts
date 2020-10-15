@@ -24,7 +24,7 @@ export default class FelSzállásBérlet extends Felszállás {
     }
 
     public get lejárHáromNap(): boolean {
-        return this.érvényesFelszállás && FelszállásJegy.napokszáma(this._idő.getFullYear(), this._idő.getMonth() + 1, this._idő.getDate(), this._érvényes.getFullYear(), this._érvényes.getMonth() + 1, this._érvényes.getDay()) <= 3;
+        return this.érvényesFelszállás && FelszállásJegy.napokszáma(this._idő.getFullYear(), this._idő.getMonth() + 1, this._idő.getDate(), this._érvényes.getFullYear(), this._érvényes.getMonth() + 1, this._érvényes.getDate()) <= 3;
     }
 
     constructor(sor: string) {
