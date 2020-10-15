@@ -13,6 +13,10 @@ export default abstract class Felszállás {
         return d2 - d1;
     }
 
+    public get kártyaAzon(): string {
+        return this._kártyaAzon;
+    }
+
     public get érvényesFelszállás(): boolean {
         return false;
     }

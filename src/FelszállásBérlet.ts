@@ -5,6 +5,10 @@ export default class FelSzállásBérlet extends Felszállás {
     private _típus: string;
     private _érvényes: Date;
 
+    public get ÉrvényesDátumString(): string {
+        return `${this._érvényes.toISOString().substr(0, 10)}`;
+    }
+
     public get érvényesFelszállás(): boolean {
         // egy napnyi ms hozzáadása
         const érvényességLejár: number = this._érvényes.valueOf() + 24 * 60 * 60 * 1000;
@@ -20,7 +24,7 @@ export default class FelSzállásBérlet extends Felszállás {
     }
 
     public get lejárHáromNap(): boolean {
-        return this.érvényesFelszállás && FelszállásJegy.napokszáma(this._idő.getFullYear(), this._idő.getMonth() + 1, this._idő.getDay(), this._érvényes.getFullYear(), this._érvényes.getMonth() + 1, this._érvényes.getDay()) <= 3;
+        return this.érvényesFelszállás && FelszállásJegy.napokszáma(this._idő.getFullYear(), this._idő.getMonth() + 1, this._idő.getDate(), this._érvényes.getFullYear(), this._érvényes.getMonth() + 1, this._érvényes.getDay()) <= 3;
     }
 
     constructor(sor: string) {

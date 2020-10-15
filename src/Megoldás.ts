@@ -76,4 +76,15 @@ export default class Megoldás {
                 }
             });
     }
+
+    public figyelmeztetéseketÁllománybaÍr(állományNeve: string): void {
+        const ki: string[] = [];
+        this._utasAdatok.forEach(i => {
+            if (i.érvényesFelszállás && i.lejárHáromNap) {
+                const fb: FelSzállásBérlet = i as FelSzállásBérlet;
+                ki.push(`${i.kártyaAzon} ${fb.ÉrvényesDátumString}`);
+            }
+        });
+        fs.writeFileSync(állományNeve, ki.join("\r\n") + "\r\n");
+    }
 }
