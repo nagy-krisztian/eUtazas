@@ -43,7 +43,7 @@ export default class Content {
         res.write(`A kedvezményesen utazók száma: ${megold.kedvezményesenUtazók} fő\n`);
 
         // 7. feladat:
-        megold.figyelmeztetéseketÁllománybaÍr("figyelmeztés.txt");
+        megold.figyelmeztetéseketÁllománybaÍr("figyelmeztetés.txt");
 
         // <---- Fejezd be a kódolást
 
